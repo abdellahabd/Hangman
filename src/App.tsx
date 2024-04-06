@@ -15,7 +15,7 @@ function App() {
     <div className="flex flex-col gap-8 mx-auto my-0 items-center">
       <div className="text-4xl text-center ">Lose or win</div>
       <HangmanDrawing />
-      {/* <HangmanWord /> */}
+      <HangmanWord />
 
       {/* <HangmanKeybaord /> */}
     </div>
