@@ -7,15 +7,22 @@ import HangmanWord from "./HangmanWord";
 import "./index.css";
 
 function App() {
-  const [Randomword, setRandomword] = useState(() => {
+  const [WordToGuessed, setWordToGuessed] = useState(() => {
     return allword[Math.floor(Math.random() * allword.length)];
   });
-  const [already, setalready] = useState<string[]>([]);
+  const [AlreadyGuessed, setAlreadyGuessed] = useState<string[]>([]);
+
+  const incorrectguessed = AlreadyGuessed.filter((lettre) => {
+    return !WordToGuessed.includes(lettre);
+  });
   return (
     <div className="flex flex-col gap-8 mx-auto my-0 items-center">
       <div className="text-4xl text-center ">Lose or win</div>
-      <HangmanDrawing />
-      <HangmanWord />
+      <HangmanDrawing guessedNomber={incorrectguessed.length} />
+      <HangmanWord
+        WordToGuessed={WordToGuessed}
+        AlreadyGuessed={AlreadyGuessed}
+      />
       <div className="self-stretch">
         <HangmanKeybaord />
       </div>
