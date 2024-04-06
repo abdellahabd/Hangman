@@ -1,5 +1,3 @@
-import React from "react";
-
 function HangmanWord() {
   const word = "test";
   const Gussedlettres = ["t", "g"];

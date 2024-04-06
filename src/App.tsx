@@ -2,7 +2,7 @@
 import { useState } from "react";
 import allword from "./wordList.json";
 import HangmanDrawing from "./HangmanDrawing";
-// import HangmanKeybaord from "./HangmanKeybaord";
+import HangmanKeybaord from "./HangmanKeybaord";
 import HangmanWord from "./HangmanWord";
 import "./index.css";
 
@@ -16,8 +16,9 @@ function App() {
       <div className="text-4xl text-center ">Lose or win</div>
       <HangmanDrawing />
       <HangmanWord />
-
-      {/* <HangmanKeybaord /> */}
+      <div className="self-stretch">
+        <HangmanKeybaord />
+      </div>
     </div>
   );
 }

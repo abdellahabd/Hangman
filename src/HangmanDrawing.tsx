@@ -1,5 +1,3 @@
-import React from "react";
-
 function HangmanDrawing() {
   const HEAD = (
     <div className="w-[50px] h-[50px] border-black absolute rounded-full border-[10px] top-[49px] right-[-20px]" />
