@@ -35,8 +35,8 @@ function HangmanKeybaord() {
       {KEYS.map((lettre, index) => {
         return (
           <button
-            disabled
-            className={`border-black border-[3px] uppercase p-[.5rem] aspect-square font-bold cursor-pointer text-black text-3xl  ${styles.btn} ${styles.inactive}`}
+            className={`border-black border-[3px] uppercase p-[.5rem] aspect-square font-bold cursor-pointer text-black text-3xl  ${styles.btn}`}
+            // ${styles.inactive}
             key={index}
           >
             {lettre}

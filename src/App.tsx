@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import allword from "./wordList.json";
 import HangmanDrawing from "./HangmanDrawing";
 import HangmanKeybaord from "./HangmanKeybaord";
@@ -11,6 +11,25 @@ function App() {
     return allword[Math.floor(Math.random() * allword.length)];
   });
   const [AlreadyGuessed, setAlreadyGuessed] = useState<string[]>([]);
+
+  function addGuessedletter(letter: string) {
+    if (AlreadyGuessed.includes(letter)) return;
+    setAlreadyGuessed((currentGuessed) => [...currentGuessed, letter]);
+  }
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const key = e.key;
+      if (key.match(/^[a-b]$/)) return;
+      e.preventDefault();
+      addGuessedletter(key);
+    };
+
+    document.addEventListener("keypress", handler);
+
+    return () => {
+      document.removeEventListener("keypress", handler);
+    };
+  }, [AlreadyGuessed]);
 
   const incorrectguessed = AlreadyGuessed.filter((lettre) => {
     return !WordToGuessed.includes(lettre);
